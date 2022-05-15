@@ -17,22 +17,23 @@ class Discount_counter:
         zero_cnt = sum(i==0 for i in each_book_count)        
         while zero_cnt != 5 :
             tmp = 0
+
+            if(zero_cnt == 4):
+                total_discount = total_discount + 8 * 1
+            elif(zero_cnt == 3):
+                total_discount = total_discount + 8 * 0.95 * 2
+            elif(zero_cnt == 2):
+                total_discount = total_discount + 8 * 0.9 * 3
+            elif(zero_cnt == 1):
+                total_discount = total_discount + 8 * 0.8* 4
+            elif(zero_cnt == 0):
+                total_discount = total_discount + 8 * 0.75* 5
+                
             for i in range(5):
                 if each_book_count[i] > 0:
                     each_book_count[i] = each_book_count[i] - 1
                     tmp = tmp + 1
 
-            if(zero_cnt == 4):
-                total_discount = total_discount + 8 * tmp
-            elif(zero_cnt == 3):
-                total_discount = total_discount + 8 * 0.95 * tmp
-            elif(zero_cnt == 2):
-                total_discount = total_discount + 8 * 0.9 * tmp
-            elif(zero_cnt == 1):
-                total_discount = total_discount + 8 * 0.8* tmp
-            elif(zero_cnt == 0):
-                total_discount = total_discount + 8 * 0.75* tmp
-           
             zero_cnt = sum(i==0 for i in each_book_count)
 
         return total_discount
