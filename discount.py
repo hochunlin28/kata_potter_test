@@ -1,8 +1,11 @@
 class Discount_counter:
+    
 
     def price(self, price):
         num_book = len(price)
         each_book_count = [0,0,0,0,0]
+        total_discount = 0
+
         for i in range(num_book):
             each_book_count[price[i]] = each_book_count[price[i]] + 1
 
@@ -11,15 +14,25 @@ class Discount_counter:
         if num_book == 1:
             return 8
 
-        tmp = sum(i==0 for i in each_book_count)
+        zero_cnt = sum(i==0 for i in each_book_count)        
+        while zero_cnt != 5 :
+            tmp = 0
+            for i in range(5):
+                if each_book_count[i] > 0:
+                    each_book_count[i] = each_book_count[i] - 1
+                    tmp = tmp + 1
 
-        if(tmp == 4):
-            return 8 * num_book
-        if(tmp == 3):
-            return 8 * 0.95 * num_book
-        if(tmp == 2):
-            return 8 * 0.9 * num_book
-        if(tmp == 1):
-            return 8 * 0.8* num_book
-        if(tmp == 0):
-            return 8 * 0.75* num_book
+            if(zero_cnt == 4):
+                total_discount = total_discount + 8 * tmp
+            elif(zero_cnt == 3):
+                total_discount = total_discount + 8 * 0.95 * tmp
+            elif(zero_cnt == 2):
+                total_discount = total_discount + 8 * 0.9 * tmp
+            elif(zero_cnt == 1):
+                total_discount = total_discount + 8 * 0.8* tmp
+            elif(zero_cnt == 0):
+                total_discount = total_discount + 8 * 0.75* tmp
+           
+            zero_cnt = sum(i==0 for i in each_book_count)
+
+        return total_discount
