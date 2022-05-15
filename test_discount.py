@@ -35,6 +35,22 @@ class DiscountTest(unittest.TestCase):
     def test_SimpleDiscount4(self):
         self.assertEqual(8 * 5 * 0.75, self.ctr.price([0, 1, 2, 3, 4]))
 
+    def test_SeveralDiscount1(self):
+        self.assertEqual(8 + (8 * 2 * 0.95), self.ctr.price([0, 0, 1]))
+
+    def test_SeveralDiscount2(self):
+        self.assertEqual(2 * (8 * 2 * 0.95), self.ctr.price([0, 0, 1, 1]))
+
+    def test_SeveralDiscount3(self):
+        self.assertEqual((8 * 4 * 0.8) + (8 * 2 * 0.95), self.ctr.price([0, 0, 1, 2, 2, 3]))
+
+    def test_SeveralDiscount4(self):
+        self.assertEqual(8 + (8 * 5 * 0.75), self.ctr.price([0, 1, 1, 2, 3, 4]))
+
+  
+  
+  
+
   
   
   
