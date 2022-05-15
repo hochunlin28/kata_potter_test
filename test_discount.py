@@ -19,10 +19,26 @@ class DiscountTest(unittest.TestCase):
 
     def test_Basics4(self):
         self.assertEqual(8, self.ctr.price([4]))
-        
+
     def test_Basics5(self):
         self.assertEqual(8 * 3, self.ctr.price([1, 1, 1]))
+    
+    def test_SimpleDiscount1(self):
+        self.assertEqual(8 * 2 * 0.95, self.ctr.price([0, 1]))
 
+    def test_SimpleDiscount2(self):
+        self.assertEqual(8 * 3 * 0.9, self.ctr.price([0, 2, 4]))
+
+    def test_SimpleDiscount3(self):
+        self.assertEqual(8 * 4 * 0.8, self.ctr.price([0, 1, 2, 4]))
+
+    def test_SimpleDiscount4(self):
+        self.assertEqual(8 * 5 * 0.75, self.ctr.price([0, 1, 2, 3, 4]))
+
+  
+  
+  
+  
 
 if __name__ == '__main__':
     unittest.main()

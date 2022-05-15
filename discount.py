@@ -15,3 +15,11 @@ class Discount_counter:
 
         if(tmp == 4):
             return 8 * num_book
+        if(tmp == 3):
+            return 8 * 0.95 * num_book
+        if(tmp == 2):
+            return 8 * 0.9 * num_book
+        if(tmp == 1):
+            return 8 * 0.8* num_book
+        if(tmp == 0):
+            return 8 * 0.75* num_book
