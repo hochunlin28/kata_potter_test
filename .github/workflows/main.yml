@@ -22,4 +22,4 @@ jobs:
           pip install boto3
       - name: Test with unittest
         run: |
-          python python test_discount.py -v
+          python test_discount.py -v
